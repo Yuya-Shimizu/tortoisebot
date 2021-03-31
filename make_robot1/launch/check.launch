@@ -1,0 +1,13 @@
+<launch>
+    <!--TortoiseBotのURDFモデルをパラメータサーバにロードする-->
+    <param name = "robot_description" textfile = "$(find make_robot1)/src/urdf/check.urdf"/>
+
+    <!--空のワールドでGazeboを開始する-->
+    <include file = "$(find gazebo_ros)/launch/empty_world.launch"/>
+
+    <!--GazeboでTortoiseBotを生成し，パラメータサーバからのその記述を受ける-->
+    <node name = "spawn_urdf" pkg = "gazebo_ros" type = "spawn_model" args = "-param robot_description -urdf -model tortoisebot"/>
+
+    <!--ロボットの関節状態を配信-->
+    <node name = "robot_state_publisher" pkg = "robot_state_publisher" type = "robot_state_publisher"/>
+</launch>
