@@ -1,6 +1,6 @@
 <launch>
     <!--TortoiseBotのURDFモデルをパラメータサーバにロードする-->
-    <param name = "robot_description" textfile = "$(find make_robot1)/src/urdf/check.urdf"/>
+    <param name = "robot_description" textfile = "$(find make_robot1)/urdf/check.urdf"/>
 
     <!--空のワールドでGazeboを開始する-->
     <include file = "$(find gazebo_ros)/launch/empty_world.launch"/>
